@@ -1,0 +1,52 @@
+(0, 100.0)
+(1, 700.0)
+(2, 99.5)
+
+
+The above is the output of the spark program 
+
+The 3rd user input is the user_id  
+And the 4th input is the number of jobs given by the user at that instace   
+
+The spark program outputs the user id and the average number of jobs given by the user
+
+
+Now,
+we'll use a K-Nearest Neighbours algorithm to select nodes appropriately
+
+Every worker node has a capacity, 
+
+i.e., it can execute a certain number of jobs in ,say, 1 hour depending on it's capacity. 
+
+We have user_id's and their average number of jobs
+
+We have to train the KNN Model, the training data is:
+
+No. of jobs per hour 	 Node no.
+99							1
+100							1
+101							1
+100							1
+700							2
+702							2
+701							2
+703							2
+1500							3
+1555							3
+1545							3
+1600							3
+
+
+Using averages from spark output we predict the node to be assigned, according to its capacity, using kNN algorithm: 
+
+user 0 : Node1
+user 1 : Node2
+user 2 : Node1
+
+
+ The no. of tasks deployed to every node using map reduce:
+
+Node no. 	 No. of tasks
+
+1 			2
+2 			1
